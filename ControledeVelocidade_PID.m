@@ -154,7 +154,8 @@ figure(3);
 % comando stepplot() simula e plota
 % a resposta a degrau unitaria
 %
-stepplot(cloop1,cloop2,cloop3,t);
+stepplot(cloop1,cloop2,cloop3,GHw1,t);
+legend('MF Kp=3','MF Kp=5','MF Kp=7','MA');
 grid on
 %
 % Caracteristicas da resposta a degrau
@@ -197,3 +198,17 @@ display('caracteristicas do esforco de controle de cloop2')
 info=stepinfo(esforco2)
 display('caracteristicas do esforco de controle de cloop3')
 info=stepinfo(esforco3)
+
+%
+% Plot ex 6.1.5
+%
+figure(5)
+pzplot(cloop1);
+hold on
+pzplot(cloop2);
+pzplot(cloop3);
+pzplot(GHw1);
+axis equal;
+legend('MF Kp=3','MF Kp=5','MF Kp=7','MA');
+hold off
+
