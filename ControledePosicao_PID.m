@@ -42,22 +42,22 @@ Gp = (K1*Km*Kg)/(s*(s+a)*(s+am))
 % Controlador 1
 Kp1 = 10
 Ti1 = Inf;
-Td1 = 0;
-N1  = Inf;
+Td1 = 0.1;
+N1  = 1;
 H1  = pidstd(Kp1,Ti1,Td1,N1)
 Hp1 = Kpot*H1
 % Controlador 2
-Kp2 = 20
+Kp2 = 10
 Ti2 = Inf;
-Td2 = 0;
-N2  = Inf;
+Td2 = 0.5;
+N2  = 1;
 H2  = pidstd(Kp2,Ti2,Td2,N2)
 Hp2 = Kpot*H2
 % Controlador 3
-Kp3 = 50
+Kp3 = 10
 Ti3 = Inf;
-Td3 = 0;
-N3  = Inf;
+Td3 = 1;
+N3  = 1;
 H3  = pidstd(Kp3,Ti3,Td3,N3)
 Hp3 = Kpot*H3
 %
@@ -136,7 +136,7 @@ tfinal = 20;
 t = 0:0.02:tfinal;
 figure(3);
 stepplot(cloop1,cloop2,cloop3,t);
-legend('MF Kp=10','MF Kp=20','MF Kp=50')
+legend('MF Td=0.1','MF Td=0.5','MF Td=1')
 grid on
 %
 % Caracteristicas da resposta a degrau
